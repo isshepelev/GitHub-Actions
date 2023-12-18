@@ -4,3 +4,15 @@ on:
   push:
     branches: 
       - main
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print hello message
+        run: echo "hello world from first"
+
+  second_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print hello message
+        run: echo "hello world from second"
