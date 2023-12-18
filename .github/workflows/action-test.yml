@@ -1,6 +1,6 @@
-# name: CI-CD-first-test
+name: CI-CD-first-test
 
-# on:
-#   push:
-#     branches: 
-#       - main
+on:
+  push:
+    branches: 
+      - main
