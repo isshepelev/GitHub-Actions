@@ -1,5 +1,9 @@
 name: CI-CD-first-test
 
+env:
+  APPLICATION_NAME: "first_application"
+  PACKAGE_NAME: "first_package_ver-${{github.sha}}"
+
 on:
   push:
     branches: 
@@ -11,9 +15,18 @@ jobs:
       - name: Print hello message
         run: echo "hello world from first"
 
+      - name: second name
+        run: |
+          echo "first message"
+          echo "send message"
+          echo "application name: ${{ env.APPLICATION_NAME }}"
+
   second_job:
     needs: [first_job]
     runs-on: ubuntu-latest
     steps:
       - name: Print hello message
         run: echo "hello world from second"
+
+      - name: Second name for second job
+        run: echo "package name is ${{ env.PACKAGE_NAME }}"
