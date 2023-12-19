@@ -21,8 +21,13 @@ jobs:
           echo "send message"
           echo "application name: ${{ env.APPLICATION_NAME }}"
 
+      - name: git clone
+        uses: actions/checkout@v1
+
       - name: List current folder
         run: ls -la
+
+
 
   second_job:
     needs: [first_job]
@@ -33,3 +38,6 @@ jobs:
 
       - name: Second name for second job
         run: echo "package name is ${{ env.PACKAGE_NAME }}"
+
+      - name: git
+        run: sudo apt install git -y
