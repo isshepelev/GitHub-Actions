@@ -31,6 +31,9 @@ jobs:
 
   second_job:
     needs: [first_job]
+    env:
+      PRIVATE_ENV_FIRST: "private_env first"
+      PRIVATE_ENV_SECOND: "private_env second"
     runs-on: ubuntu-latest
     steps:
       - name: Print hello message
@@ -41,3 +44,8 @@ jobs:
 
       - name: git
         run: sudo apt install git -y
+
+      - name: print_private_env
+        run: |
+          echo "first-${{ env.PRIVATE_ENV_FIRST }}"
+          echo "second-${{ env.PRIVATE_ENV_SECOND }}"
